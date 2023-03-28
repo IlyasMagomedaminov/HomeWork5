@@ -44,12 +44,15 @@ public class Main {
         System.out.println("Задача 3.");
 
         int peopleCountry = 12000000;//население страны
+        int birth = 17;//рождаемость
+        int death = 8;//смертность
+        int period = 10;
+        int counter = 0;
 
-        for(int i = 1;i <= 10;i++){
-            int birth = (peopleCountry/1000) * 17;//рождаемость
-            int death = (peopleCountry/1000) * 8;//смертность
-            peopleCountry = peopleCountry + (birth - death);//население с учотом рождаемости и смертности
-            System.out.println("Год " + i + ", численность населения составляет " + peopleCountry );
+        while (counter<=period){
+            peopleCountry = peopleCountry + (birth - death) * peopleCountry / 1000;//население с учотом рождаемости и смертности
+            counter++;
+            System.out.println("Год " + counter + ", численность населения составляет " + peopleCountry );
         }
     }
     public static void task4(){
@@ -115,15 +118,18 @@ public class Main {
     public static  void task8(){
         System.out.println("Задача 8");
 
-        short max = 2023 + 100;
-        short min = 2023 - 200;
-        int year = 79;
+        byte cometYear = 79;
+        short currentYear = 2023;
+        byte next = 100;
+        short previous = 200;
 
-        while (year < max){
-            if (year > min){
-                System.out.println(year);
+        int max = currentYear + next;
+        int min = currentYear - previous;
+
+        for (int i = min; i<= max; i++){
+            if (i % cometYear == 0 ){
+                System.out.println(i);
             }
-            year+=79;
         }
     }
 
