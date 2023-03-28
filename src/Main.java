@@ -38,16 +38,17 @@ public class Main {
         for (;i > 0;i--){
             System.out.print(i + " ");
         }
+        System.out.println();
     }
     public static void task3(){
         System.out.println("Задача 3.");
 
         int peopleCountry = 12000000;//население страны
-        int birth = (peopleCountry/1000) * 17;//рождаемость
-        int death = (peopleCountry/1000) * 8;//смертность
 
         for(int i = 1;i <= 10;i++){
-            peopleCountry+=(birth - death);//население с учотом рождаемости и смертности
+            int birth = (peopleCountry/1000) * 17;//рождаемость
+            int death = (peopleCountry/1000) * 8;//смертность
+            peopleCountry = peopleCountry + (birth - death);//население с учотом рождаемости и смертности
             System.out.println("Год " + i + ", численность населения составляет " + peopleCountry );
         }
     }
@@ -116,11 +117,13 @@ public class Main {
 
         short max = 2023 + 100;
         short min = 2023 - 200;
+        int year = 79;
 
-        for (int i = 0;i < max;i++){
-            if (i % 79 == 0 && i > min ){
-                System.out.println(i);
+        while (year < max){
+            if (year > min){
+                System.out.println(year);
             }
+            year+=79;
         }
     }
 
